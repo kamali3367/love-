@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Love Me?</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background-color: #fff0f5;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #questionSection, #finalMessage {
+      display: none;
+    }
+    button {
+      font-size: 20px;
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    #yesBtn { background-color: #ff69b4; color: white; }
+    #noBtn { background-color: #ffb6c1; color: black; }
+  </style>
+</head>
+<body>
+
+  <div id="nameSection">
+    <h2>What's your name?</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <br><br>
+    <button onclick="askLove()">Next</button>
+  </div>
+
+  <div id="questionSection">
+    <h2 id="loveQuestion"></h2>
+    <button id="yesBtn" onclick="acceptLove()">Yes</button>
+    <button id="noBtn" onclick="askAgain()">No</button>
+  </div>
+
+  <div id="finalMessage">
+    <h1>Muwahh 💋🎈🎈🎈</h1>
+    <h2>You are mine! 🤗😘</h2>
+  </div>
+
+  <script>
+    let userName = "";
+
+    function askLove() {
+      userName = document.getElementById("nameInput").value.trim();
+      if (userName === "") {
+        alert("Please enter your name!");
+        return;
+      }
+      document.getElementById("nameSection").style.display = "none";
+      document.getElementById("questionSection").style.display = "block";
+      document.getElementById("loveQuestion").innerText = `${userName}, will you love me? ❤️`;
+    }
+
+    function askAgain() {
+      alert("No? Think again... 😢");
+    }
+
+    function acceptLove() {
+      document.getElementById("questionSection").style.display = "none";
+      document.getElementById("finalMessage").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
